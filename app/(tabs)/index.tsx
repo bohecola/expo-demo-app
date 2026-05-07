@@ -1,11 +1,12 @@
 import '../../global.css';
 
 import domtoimage from 'dom-to-image';
+import * as Application from 'expo-application';
 import * as ImagePicker from "expo-image-picker";
 import * as MediaLibrary from 'expo-media-library';
 import { cssInterop } from 'nativewind';
 import { useEffect, useRef, useState } from 'react';
-import { ImageSourcePropType, Platform, View } from "react-native";
+import { ImageSourcePropType, Platform, Text, View } from "react-native";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { captureRef } from 'react-native-view-shot';
 
@@ -106,6 +107,10 @@ export default function Index() {
           <ImageViewer imgSource={PlaceholderImage} selectedImage={selectedImage} />
           {pickedEmoji && <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />}
         </View>
+
+        <Text className='text-white'>This is a update text.</Text>
+        <Text className='text-blue-600'>This is second update text.</Text>
+        <Text className='text-white'>应用版本：{Application.nativeApplicationVersion} ({Application.nativeBuildVersion})</Text>
       </View>
       {showAppOptions ? (
         <View className="absolute bottom-20">
